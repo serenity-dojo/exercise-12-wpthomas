@@ -1,6 +1,7 @@
 package com.serenitydojo;
 
 import com.serenitydojo.exceptions.FileLoader;
+import com.serenitydojo.exceptions.MissingWelcomeFileException;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -52,9 +53,9 @@ public class WhenWorkingWithExceptions {
     @Test
     public void catchingCustomExceptionsWhenTheFileDoesNotExist() {
         FileLoader fileLoader = new FileLoader();
-        // assertThatThrownBy(() -> {
+         assertThatThrownBy(() -> {
             assertThat(fileLoader.fileHasText("does-not-exist.txt","Hello World")).isFalse();
-        // }).isInstanceOf(MissingWelcomeFileException.class);
+         }).isInstanceOf(MissingWelcomeFileException.class);
 
     }
 }
